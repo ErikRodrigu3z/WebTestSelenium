@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Threading;
 
 namespace TestSelenium
 {
@@ -27,39 +28,38 @@ namespace TestSelenium
         [Test]
         public void Login()
         {
-            try
-            {
-                //details-button    
-                IWebElement detailsButton = _driver.FindElement(By.Id("details-button"));
-                detailsButton.Click();
+            
+            //details-button    
+            Thread.Sleep(1000);
+            IWebElement detailsButton = _driver.FindElement(By.Id("details-button"));
+            detailsButton.Click();
 
-                //proceed-link
-                IWebElement proceedLink = _driver.FindElement(By.Id("proceed-link"));
-                proceedLink.Click();
+            //proceed-link
+            Thread.Sleep(1000);
+            IWebElement proceedLink = _driver.FindElement(By.Id("proceed-link"));
+            proceedLink.Click();
 
-                //Login
-                IWebElement acdeder = _driver.FindElement(By.LinkText("Login"));
-                acdeder.Click();
+            //Login
+            Thread.Sleep(1000);
+            IWebElement acdeder = _driver.FindElement(By.LinkText("Login"));
+            acdeder.Click();
 
-                //User input
-                IWebElement userInput = _driver.FindElement(By.Id("Input_Email"));
-                userInput.SendKeys("prueba@gmail.com");
+            //User input
+            IWebElement userInput = _driver.FindElement(By.Id("Input_Email"));
+            userInput.SendKeys("prueba@gmail.com");
 
-                //password input
-                IWebElement password = _driver.FindElement(By.Id("Input_Password"));
-                password.SendKeys("Erik1234.");
+            //password input
+            IWebElement password = _driver.FindElement(By.Id("Input_Password"));
+            password.SendKeys("Erik1234.");
 
-                //siguiente
-                IWebElement siguiente = _driver.FindElement(By.Id("login-submit"));
-                siguiente.Submit();
+            //siguiente
+            Thread.Sleep(1000);
+            IWebElement siguiente = _driver.FindElement(By.Id("login-submit"));
+            siguiente.Submit();
 
-                Assert.Pass();
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail(ex.Message);
-                throw;
-            }
+            Assert.Pass();
+            
+            
         }
 
 
